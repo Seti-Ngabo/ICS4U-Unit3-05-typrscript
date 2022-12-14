@@ -1,18 +1,21 @@
 /**
- * The program generates all of the possible combinations in a 3x3 square
- * using recursion and prints all of the possible magic squares.
- *
+ * This program generates all the magic squares with a magical number equal to 15 
  * By:      Seti Ngabo
  * Version: 1.0
- * Since:   2022-11-21
+ * Since:   2022-11-18
  */
 
 const MAGIC_NUM = 15
 const NUM_ARR = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+// https://stackoverflow.com/questions/840781/
+// get-all-non-unique-values-i-e-duplicate-more-than-one-occurrence-in-an-array
 /**
  * The findDuplicates function.
  *
+ * <p>
+ * Finds duplicate values in an array.
+ * </p>
  *
  * @param {number[]} arr - the array to find duplicates in.
  * @returns {number[]} - the array of duplicate values.
@@ -25,9 +28,9 @@ function findDuplicates(arr: number[]): number[] {
   // (we use slice to clone the array so the
   // original array won't be modified)
   const results = []
-  for (let counter = 0; counter < sortedArr.length - 1; counter++) {
-    if (sortedArr[counter + 1] === sortedArr[counter]) {
-      results.push(sortedArr[counter])
+  for (let i = 0; i < sortedArr.length - 1; i++) {
+    if (sortedArr[i + 1] === sortedArr[i]) {
+      results.push(sortedArr[i])
     }
   }
   return results
@@ -36,18 +39,24 @@ function findDuplicates(arr: number[]): number[] {
 /**
  * The printSquare function.
  *
+ * <p>
+ * It formats the magic square array.
+ * </p>
  *
  * @param {number[]} arr - the magic square array.
  */
 function printSquare(arr: number[]): void {
   console.log(
-    `\n${arr[0]} ${arr[1]} ${arr[2]}
-${arr[3]} ${arr[4]} ${arr[5]}\n${arr[6]} ${arr[7]} ${arr[8]}`
+    `\n- - -\n${arr[0]} ${arr[1]} ${arr[2]}
+${arr[3]} ${arr[4]} ${arr[5]}\n${arr[6]} ${arr[7]} ${arr[8]}\n- - -`
   )
 }
 
 /**
  * The isMagic function.
+ * <p>
+ * Checks if the square is a magic square.
+ * </p>
  *
  * @param {number[]} square - the square array to be checked.
  * @returns {boolean} - if it's a magic square or not.
@@ -74,6 +83,10 @@ function isMagic(square: number[]): boolean {
 
 /**
  * The magicSquare function.
+ *
+ * <p>
+ * Prints all of the possible magic squares in a 3x3 square
+ * </p>
  *
  * @param {number[]} nums - the list of numbers (1-9).
  * @param {number[]} currentSquare - the current square to be filled up.
