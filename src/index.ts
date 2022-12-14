@@ -1,5 +1,5 @@
 /**
- * This program generates all the magic squares with a magical number equal to 15 
+ * This program generates all the magic squares with a magical number equal to 15
  * By:      Seti Ngabo
  * Version: 1.0
  * Since:   2022-11-18
